@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='application',
-            name='scopes',
-            field=models.TextField(blank=True, help_text='application specific scopes that will be defined to the token'),
+            name='allowed_scopes',
+            field=models.TextField(blank=True, help_text='Scopes that requested application can allow'),
         ),
     ]
