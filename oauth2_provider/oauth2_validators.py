@@ -288,6 +288,8 @@ class OAuth2Validator(RequestValidator):
 
     def get_default_scopes(self, client_id, request, *args, **kwargs):
         default_scopes = get_scopes_backend().get_default_scopes(application=request.client, request=request)
+        if request.client.scopes:
+            return request.client.scopes
         return default_scopes
 
     def validate_redirect_uri(self, client_id, redirect_uri, request, *args, **kwargs):
